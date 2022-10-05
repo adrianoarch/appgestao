@@ -22,6 +22,14 @@ class LogAcessoMiddleware
         // dd($ip, $uri);
         $log = "O IP $ip requisitou a rota $uri";
         LogAcesso::create(['log' => $log]);
-        return $next($request);
+        
+        // return $next($request);
+
+        $resposta = $next($request);
+
+        // dd($resposta);
+
+        $resposta->headers->set('X-Developer', 'Adriano de Oliveira');
+        return $resposta;
     }
 }
