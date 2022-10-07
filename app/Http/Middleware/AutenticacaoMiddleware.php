@@ -16,12 +16,14 @@ class AutenticacaoMiddleware
      */
     public function handle(Request $request, Closure $next, $metodo_autenticacao)
     {
-        echo "AutenticacaoMiddleware: $metodo_autenticacao", PHP_EOL;
-        
-        if (false) {
-            return $next($request);
-        } else {
-            return Response('Acesso negado');
-        }
+       session_start();
+    //    dd($_SESSION);
+
+         if(isset($_SESSION['nome']) && $_SESSION['nome'] != ''){
+             return $next($request);
+         }
+         else{
+             return redirect()->route('site.login', ['erro' => 2]);
+         }
     }
 }

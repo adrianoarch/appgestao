@@ -8,6 +8,7 @@ use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\TesteController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\LoginController;
 
 
 Route::get('/', [PrincipalController::class, 'principal'])
@@ -18,9 +19,11 @@ Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])->name('site.so
 Route::get('/contato', [ContatoController::class, 'contato'])
     ->name('site.contato');
     
-Route::post('/contato', [ContatoController::class, 'salvar'])->name('site.contato');
+Route::post('/contato', [ContatoController::class, 'salvar'])->name('site.contato1');
 
-Route::get('/login', function(){return 'Login';})->name('site.login');
+Route::get('/login', [LoginController::class, 'index'])->name('site.login');
+Route::post('/login', [LoginController::class, 'autenticar'])->name('site.login');
+
 
 Route::prefix('/app')
     ->middleware('autenticacao:padrao')
