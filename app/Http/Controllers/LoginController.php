@@ -46,7 +46,6 @@ class LoginController extends Controller
             session_start();
             $_SESSION['nome'] = $verificaUsuario->name;
             $_SESSION['email'] = $verificaUsuario->email;
-            // dd($_SESSION);
             return redirect()->route('app.clientes');
         }
         else{
@@ -55,5 +54,10 @@ class LoginController extends Controller
 
         // return redirect()->route('site.login');
 
+    }
+
+    public function sair(){
+        session_destroy();
+        return redirect()->route('site.index');
     }
 }
