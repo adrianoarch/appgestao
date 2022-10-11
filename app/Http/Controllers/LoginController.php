@@ -46,7 +46,7 @@ class LoginController extends Controller
             session_start();
             $_SESSION['nome'] = $verificaUsuario->name;
             $_SESSION['email'] = $verificaUsuario->email;
-            return redirect()->route('app.clientes');
+            return redirect()->route('app.home');
         }
         else{
             return redirect()->route('site.login')->with('erro', 'Usuário ou senha inválidos');

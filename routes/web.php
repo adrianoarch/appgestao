@@ -10,6 +10,7 @@ use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\TesteController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ClienteController;
 
 
 Route::get('/', [PrincipalController::class, 'principal'])
