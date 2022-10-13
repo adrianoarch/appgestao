@@ -51,9 +51,6 @@ class LoginController extends Controller
         else{
             return redirect()->route('site.login')->with('erro', 'Usuário ou senha inválidos');
         }
-
-        // return redirect()->route('site.login');
-
     }
 
     public function sair(){
