@@ -22,6 +22,13 @@
 
       <div class="informacao-pagina">
          <div style="width: 30%; margin-left: auto; margin-right: auto;">
+            @if (isset($errors) && count($errors) > 0)
+               <div class="text-center mt-4 mb-4 p-2 alert-danger">
+                  @foreach ($errors->all() as $error)
+                     {{ $error }}
+                  @endforeach
+               </div>
+            @endif
             <form action="{{ route('app.fornecedor.listar') }}" method="post">
                @csrf
                <input type="text" name="nome" id="nome" placeholder="Nome" class="borda-preta">
