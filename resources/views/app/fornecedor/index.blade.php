@@ -28,15 +28,15 @@
                      {{ $error }}
                   @endforeach
                </div>
-            @endif
+               @endif
+            {{ $msg ?? '' }}
             <form action="{{ route('app.fornecedor.listar') }}" method="post">
                @csrf
                <input type="text" name="nome" id="nome" placeholder="Nome" class="borda-preta">
                <input type="text" name="site" id="site" placeholder="Site" class="borda-preta">
                <input type="text" name="uf" id="uf" placeholder="UF" class="borda-preta">
                <input type="email" name="email" id="email" placeholder="E-mail" class="borda-preta">
-               <button type="submit" class="borda-preta">Pesquisar</button>
-                             
+               <button type="submit" class="borda-preta">Pesquisar</button>                             
             </form>
 
          </div>
