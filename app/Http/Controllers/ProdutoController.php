@@ -61,7 +61,7 @@ class ProdutoController extends Controller
         
         Produto::create($request->all());
 
-        return redirect()->route('produto.index');
+        return redirect()->route('produto.index')->with('mensagem', 'Produto cadastrado com sucesso!');
     }
 
     /**
@@ -85,7 +85,8 @@ class ProdutoController extends Controller
     {
         $unidades = Unidade::all();
         
-        return view('app.produto.edit', compact('produto', 'unidades'));
+        // return view('app.produto.edit', compact('produto', 'unidades'));
+        return view('app.produto.create', compact('produto', 'unidades'));
     }
 
     /**
