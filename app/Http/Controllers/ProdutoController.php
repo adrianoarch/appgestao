@@ -97,7 +97,11 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
-        //
+        $produto -> update($request->all());
+
+        $msg = "Produto $produto->nome atualizado com sucesso!";
+
+        return redirect()->route('produto.index')->with('mensagem', $msg);
     }
 
     /**
@@ -108,6 +112,10 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
-        //
+        $produto->delete();
+
+        $msg = "Produto $produto->nome removido com sucesso!";
+
+        return redirect()->route('produto.index')->with('mensagem', $msg);
     }
 }
