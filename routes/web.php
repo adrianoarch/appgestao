@@ -11,7 +11,7 @@ use App\Http\Controllers\TesteController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ClienteController;
-
+use App\Http\Controllers\ProdutoDetalheController;
 
 Route::get('/', [PrincipalController::class, 'principal'])
     ->name('site.index');
@@ -43,6 +43,8 @@ Route::prefix('/app')
 
         // Route::get('/produto', [ProdutoController::class, 'index'])->name('app.produto');
         Route::resource('produto', ProdutoController::class);
+
+        Route::resource('produto-detalhe', ProdutoDetalheController::class);
 });
 
 Route::get('/teste/{p1}/{p2}', [TesteController::class, 'teste'])->name('site.teste');
