@@ -23,7 +23,7 @@
             @if(Session::has('success'))
                {{ Session::get('success') }}
             @endif
-
+            {{-- {{ $produto_detalhe->toJson() }} --}}
             <h4>Produto</h4>
             <div>Nome: {{ $produto_detalhe->item->nome }}</div>
             <br>

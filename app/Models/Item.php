@@ -21,4 +21,9 @@ class Item extends Model
     {
         return $this->hasOne(ItemDetalhe::class, 'produto_id', 'id');
     }
+
+    public function fornecedor()
+    {
+        return $this->belongsTo(Fornecedor::class);
+    }
 }
